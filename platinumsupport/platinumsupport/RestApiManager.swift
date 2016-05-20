@@ -24,7 +24,9 @@ class RestApiManager: NSObject {
     }
     
     func makeHTTPGetRequest(path: String, onCompletion: ServiceResponse) {
-        let request = NSMutableURLRequest(URL: NSURL(string: path)!)
+        let encodedString = path.stringByAddingPercentEncodingWithAllowedCharacters(
+            NSCharacterSet.URLFragmentAllowedCharacterSet())
+        let request = NSMutableURLRequest(URL: NSURL(string: encodedString!)!)
         
         let session = NSURLSession.sharedSession()
         

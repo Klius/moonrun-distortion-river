@@ -18,8 +18,7 @@ class AccountsAddTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "cancelToAccount"{
-            print("cancel")
-            
+        
         }
     }
     
@@ -52,7 +51,10 @@ class AccountsAddTableViewController: UITableViewController {
             let mail = mailTextField.text where !mail.isEmpty
             else { return }
         // enable your button if all conditions are met
+        
+        self.navigationItem.leftBarButtonItem!.enabled = false;
         retrieveUserData(nameTextAccount.text!, mail: mailTextField.text!)
+        self.navigationItem.leftBarButtonItem!.enabled = true;
     }
     
     func retrieveUserData(code: String, mail: String){
@@ -96,24 +98,24 @@ class AccountsAddTableViewController: UITableViewController {
  ***
  ***********/
     func showOk(){
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+        dispatch_async(dispatch_get_main_queue()) {
             self.warningLabel.text = "La comprobación ha sido un éxito!"
             self.warningLabel.textColor = UIColor.greenColor()
             self.navigationItem.rightBarButtonItem!.enabled = true;
         }
     }
     func showError() {
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+        dispatch_async(dispatch_get_main_queue()) {
             self.warningLabel.text = "El código o el mail no són correctos. "
             self.warningLabel.textColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1)
         }
     }
     func showNoConnection(){
-        self.warningLabel.text = "No tienes conexión a internet"
-        self.warningLabel.textColor = UIColor.redColor()
+        warningLabel.text = "No tienes conexión a internet"
+        warningLabel.textColor = UIColor.redColor()
     }
     func showChecking(){
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+        dispatch_async(dispatch_get_main_queue()) { 
             self.warningLabel.text = "Comprobando... "
             self.warningLabel.textColor = UIColor.blackColor()
         }
