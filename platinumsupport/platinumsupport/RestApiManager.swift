@@ -12,7 +12,7 @@ typealias ServiceResponse = (JSON, NSError?) -> Void
 class RestApiManager: NSObject {
     static let sharedInstance = RestApiManager()
     
-    let baseURL = "http://192.168.1.39:5000/platinum/api/v1.0/"
+    let baseURL = "http://192.168.1.40:5000/platinum/api/v1.0/"
     
     func getUserInfo(code: String , mail: String,onCompletion: (JSON) -> Void) {
         var route = baseURL + "profile/"+code+"/"+mail

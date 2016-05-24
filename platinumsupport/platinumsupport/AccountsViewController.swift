@@ -9,7 +9,7 @@
 import UIKit
 
 class AccountsViewController: UITableViewController {
-    var accounts:[Account] = playersData
+    var accounts:[Account] = []
     var selectedAccountIndex:Int?
     
     
@@ -19,24 +19,18 @@ class AccountsViewController: UITableViewController {
     //Save account function
     @IBAction func saveAccountDetail(segue:UIStoryboardSegue) {
         if let AccountsAddTableViewController = segue.sourceViewController as? AccountsAddTableViewController{
-            
             //add the new account to the account array
             if let account = AccountsAddTableViewController.account {
                 accounts.append(account)
                 //update the tableView
                 let indexPath = NSIndexPath(forRow: accounts.count-1, inSection: 0)
                 tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                //Save accounts
+                saveAccounts()
             }
         }
     }
     
-    func printSelectedAccount(){
-        for i in 0...accounts.count-1{
-            if accounts[i].selected{
-                print(accounts[i].name)
-            }
-        }
-    }
     
     //selects the Account
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -56,6 +50,9 @@ class AccountsViewController: UITableViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccountCell
         cell.selectedImageView.image = UIImage(named: "selected")
         
+        //Save changes
+        saveAccounts()
+        
         //Debug only!
         //printSelectedAccount()
     }
@@ -63,10 +60,17 @@ class AccountsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for index in 0...accounts.count-1 {
-            if accounts[index].selected{
-                selectedAccountIndex = index
+        // Load any saved Accounts, otherwise load sample data.
+        if let savedAccounts = loadAccounts() {
+            accounts += savedAccounts
+            for index in 0...accounts.count-1 {
+                if accounts[index].selected{
+                    selectedAccountIndex = index
+                }
             }
+        } else {
+            // Load the sample data.
+            
         }
 
     }
@@ -101,8 +105,44 @@ class AccountsViewController: UITableViewController {
         return cell
 
     }
+    
+   /***************
+    ****
+    **** Platinum support : Persistence
+    ****
+    *****************/
+    
+    func saveAccounts(){
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(accounts, toFile: Account.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save account")
+        }
+    }
+    
+    
+    
+    func loadAccounts() -> [Account]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Account.ArchiveURL.path!) as? [Account]
+    }
+    
 
+    
+    /*********
+    ***
+    *** Debug
+    ***
+    *********/
 
+    
+    func printSelectedAccount(){
+        for i in 0...accounts.count-1{
+            if accounts[i].selected{
+                print(accounts[i].name)
+            }
+        }
+    }
+    
+    
 
 
 }

@@ -99,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				60798B491CDB4CE0003FE4D2 /* AccountsViewController.swift */,
-				60798B4B1CDB4D50003FE4D2 /* Account.swift */,
 				60798B4D1CDB51B7003FE4D2 /* SampleDataAccounts.swift */,
 				60798B4F1CDB6985003FE4D2 /* AccountCell.swift */,
 				60798B511CDB903E003FE4D2 /* AccountsAddTableViewController.swift */,
@@ -146,6 +145,7 @@
 		60C4E9B91CD75A1200118A7B /* platinumsupport */ = {
 			isa = PBXGroup;
 			children = (
+				60EFF7901CF456E4008A56F5 /* Classes */,
 				6094A8C61CDCB6F50074E015 /* Storyboards */,
 				6094A8C11CDCB69A0074E015 /* Framework */,
 				60C4E9BD1CD75A1200118A7B /* AppDelegate.h */,
@@ -157,9 +157,6 @@
 				60C4E9CB1CD75A1200118A7B /* Info.plist */,
 				60C4E9BA1CD75A1200118A7B /* Supporting Files */,
 				60798B481CDB4CE0003FE4D2 /* platinumsupport-Bridging-Header.h */,
-				60B1974E1CEC6BBA009A2A08 /* SwiftyJSON.swift */,
-				6099E72B1CEDD63800935428 /* Reachability.swift */,
-				60B1974A1CEC63D9009A2A08 /* RestApiManager.swift */,
 			);
 			path = platinumsupport;
 			sourceTree = "<group>";
@@ -188,6 +185,17 @@
 				60C4E9E11CD75A1200118A7B /* Info.plist */,
 			);
 			path = platinumsupportUITests;
+			sourceTree = "<group>";
+		};
+		60EFF7901CF456E4008A56F5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				60798B4B1CDB4D50003FE4D2 /* Account.swift */,
+				60B1974E1CEC6BBA009A2A08 /* SwiftyJSON.swift */,
+				6099E72B1CEDD63800935428 /* Reachability.swift */,
+				60B1974A1CEC63D9009A2A08 /* RestApiManager.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
