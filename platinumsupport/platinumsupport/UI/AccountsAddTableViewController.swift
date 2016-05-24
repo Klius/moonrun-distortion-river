@@ -10,7 +10,8 @@ import UIKit
 
 class AccountsAddTableViewController: UITableViewController {
     @IBOutlet weak var mailTextField: UITextField!
-    @IBOutlet weak var nameTextAccount: UITextField!
+    @IBOutlet weak var codeTextAccount: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var warningLabel: UILabel!
     
     var data:NSData!
@@ -28,7 +29,7 @@ class AccountsAddTableViewController: UITableViewController {
         super.viewDidLoad()
         //you can't save until the info is right and there
         self.navigationItem.rightBarButtonItem!.enabled = false;
-        nameTextAccount.addTarget(self, action: "checkFields:", forControlEvents: .EditingDidEnd)
+        codeTextAccount.addTarget(self, action: "checkFields:", forControlEvents: .EditingDidEnd)
         mailTextField.addTarget(self, action: "checkFields:", forControlEvents: .EditingDidEnd)
         
     }
@@ -47,13 +48,13 @@ class AccountsAddTableViewController: UITableViewController {
     func checkFields(sender: UITextField) {
         sender.text = sender.text?.stringByTrimmingCharactersInSet(.whitespaceCharacterSet())
         guard
-            let code = nameTextAccount.text where !code.isEmpty,
+            let code = codeTextAccount.text where !code.isEmpty,
             let mail = mailTextField.text where !mail.isEmpty
             else { return }
         // enable your button if all conditions are met
         
         self.navigationItem.leftBarButtonItem!.enabled = false;
-        retrieveUserData(nameTextAccount.text!, mail: mailTextField.text!)
+        retrieveUserData(codeTextAccount.text!, mail: mailTextField.text!)
         self.navigationItem.leftBarButtonItem!.enabled = true;
     }
     
@@ -75,8 +76,8 @@ class AccountsAddTableViewController: UITableViewController {
                         self.showError()
                     }
                     else{
-                        self.showOk()
                         self.account = Account(name: results["name"].stringValue, mail: results["mail"].stringValue, code: results["code"].stringValue, selected: false)
+                        self.showOk()
                     }
                 }
             }
@@ -102,6 +103,7 @@ class AccountsAddTableViewController: UITableViewController {
             self.warningLabel.text = "La comprobación ha sido un éxito!"
             self.warningLabel.textColor = UIColor.greenColor()
             self.navigationItem.rightBarButtonItem!.enabled = true;
+            self.nameTextField.text = self.account!.name
         }
     }
     func showError() {
@@ -126,7 +128,7 @@ class AccountsAddTableViewController: UITableViewController {
         //shows up the keyboard on touching cell
         switch indexPath.section{
         case 0:
-            nameTextAccount.becomeFirstResponder()
+            codeTextAccount.becomeFirstResponder()
             break
         case 0:
             mailTextField.becomeFirstResponder()

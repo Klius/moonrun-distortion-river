@@ -172,6 +172,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="6du-VY-9eO" id="RTh-1X-qZQ"/>
                                     <outlet property="selectedImageView" destination="k8U-Bz-sCd" id="aTL-eJ-brd"/>
+                                    <segue destination="BYV-ER-lSG" kind="show" identifier="" id="AsJ-Dc-Rbp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -203,13 +204,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="llX-6Y-4st">
-                            <rect key="frame" x="0.0" y="271" width="600" height="111"/>
+                            <rect key="frame" x="0.0" y="366" width="600" height="111"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rix-9R-LjD">
                                     <rect key="frame" x="279" y="45" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -222,7 +223,7 @@
                             </constraints>
                         </view>
                         <sections>
-                            <tableViewSection headerTitle="Nombre de cuenta" id="2xc-cJ-tuH">
+                            <tableViewSection headerTitle="Código" id="2xc-cJ-tuH">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="1xD-xg-bsD">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
@@ -261,6 +262,29 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Nombre" id="cYZ-UW-wfS">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="kRY-dG-QDJ">
+                                        <rect key="frame" x="0.0" y="304" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kRY-dG-QDJ" id="h4c-sj-6Il">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EZq-Hk-dfp">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                        <bool key="isElement" value="NO"/>
+                                                    </accessibility>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="BYV-ER-lSG" id="AAU-6u-ic8"/>
@@ -280,15 +304,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="codeTextAccount" destination="vBt-5a-KLf" id="28q-6W-Ggh"/>
                         <outlet property="mailTextField" destination="NJl-yG-YV7" id="X6r-9E-m58"/>
-                        <outlet property="nameTextAccount" destination="vBt-5a-KLf" id="QWF-rq-p6m"/>
+                        <outlet property="nameTextField" destination="EZq-Hk-dfp" id="PxF-JJ-daO"/>
                         <outlet property="warningLabel" destination="Rix-9R-LjD" id="eeh-DW-ODj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otg-jB-v1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dkq-ft-RXz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2964" y="1198"/>
+            <point key="canvasLocation" x="2932" y="1232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dD8-BA-TfC">
@@ -304,7 +329,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ves-yE-WnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2226" y="1222"/>
+            <point key="canvasLocation" x="2230" y="1658"/>
         </scene>
         <!--Perfiles-->
         <scene sceneID="syv-IL-geU">
@@ -332,4 +357,7 @@
         <image name="settings" width="40" height="40"/>
         <image name="square" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AsJ-Dc-Rbp"/>
+    </inferredMetricsTieBreakers>
 </document>
