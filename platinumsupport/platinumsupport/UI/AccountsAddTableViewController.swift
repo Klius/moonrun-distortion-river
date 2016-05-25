@@ -17,6 +17,7 @@ class AccountsAddTableViewController: UITableViewController {
     var data:NSData!
     var account:Account?
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "cancelToAccount"{
         
@@ -31,12 +32,33 @@ class AccountsAddTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem!.enabled = false;
         codeTextAccount.addTarget(self, action: "checkFields:", forControlEvents: .EditingDidEnd)
         mailTextField.addTarget(self, action: "checkFields:", forControlEvents: .EditingDidEnd)
+        //Edit mode
+        if let account = account{
+            editModeGui()
+        }
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func editModeGui(){
+        //Disable the rich
+        codeTextAccount.enabled = false
+        codeTextAccount.textColor = UIColor.lightGrayColor()
+        mailTextField.enabled = false
+        mailTextField.textColor = UIColor.lightGrayColor()
+        //enable the poor
+        nameTextField.enabled = true
+        nameTextField.userInteractionEnabled = true
+        self.navigationItem.rightBarButtonItem!.enabled = true
+        //Fill them the info
+        codeTextAccount.text = account?.code
+        mailTextField.text = account?.mail
+        nameTextField.text = account?.name
+        
     }
     
 /***********

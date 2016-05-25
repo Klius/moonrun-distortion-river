@@ -121,27 +121,27 @@ class AccountsViewController: UITableViewController {
         }
     }
     
-    /********
- *****
- **** Segues
- ******
+/********
+ *
+ * Segues
+ *
  **************/
     
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowDetail" {
-            let mealDetailViewController = segue.destinationViewController as! MealViewController
+        if segue.identifier == "editProfileSegue" {
+            let profileDetailViewController = segue.destinationViewController as! AccountsAddTableViewController
             
             // Get the cell that generated this segue.
-            if let selectedMealCell = sender as? MealTableViewCell {
-                let indexPath = tableView.indexPathForCell(selectedMealCell)!
-                let selectedMeal = meals[indexPath.row]
-                mealDetailViewController.meal = selectedMeal
-            }
+            if let selectedProfileCell = sender as? AccountCell {
+                let indexPath = tableView.indexPathForCell(selectedProfileCell)!
+                let selectedProfile = accounts[indexPath.row]
+                //pass the profile info!
+                profileDetailViewController.account = selectedProfile            }
         }
-        else if segue.identifier == "AddItem" {
-            print("Adding new meal.")
+        else{
+            print("Adding new profile.")
         }
     }
     

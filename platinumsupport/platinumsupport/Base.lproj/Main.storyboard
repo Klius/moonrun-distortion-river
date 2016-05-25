@@ -172,7 +172,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="6du-VY-9eO" id="RTh-1X-qZQ"/>
                                     <outlet property="selectedImageView" destination="k8U-Bz-sCd" id="aTL-eJ-brd"/>
-                                    <segue destination="BYV-ER-lSG" kind="show" identifier="" id="AsJ-Dc-Rbp"/>
+                                    <segue destination="BYV-ER-lSG" kind="show" identifier="editProfileSegue" id="AsJ-Dc-Rbp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
