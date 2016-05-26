@@ -12,6 +12,7 @@
 		60798B4E1CDB51B7003FE4D2 /* SampleDataAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60798B4D1CDB51B7003FE4D2 /* SampleDataAccounts.swift */; };
 		60798B501CDB6985003FE4D2 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60798B4F1CDB6985003FE4D2 /* AccountCell.swift */; };
 		60798B521CDB903E003FE4D2 /* AccountsAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60798B511CDB903E003FE4D2 /* AccountsAddTableViewController.swift */; };
+		609433781CF6F5E600BA5799 /* dissmissKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609433771CF6F5E600BA5799 /* dissmissKeyboardExtension.swift */; };
 		6099E72C1CEDD63800935428 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6099E72B1CEDD63800935428 /* Reachability.swift */; };
 		60B1974B1CEC63D9009A2A08 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1974A1CEC63D9009A2A08 /* RestApiManager.swift */; };
 		60B1974F1CEC6BBA009A2A08 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1974E1CEC6BBA009A2A08 /* SwiftyJSON.swift */; };
@@ -49,6 +50,7 @@
 		60798B4D1CDB51B7003FE4D2 /* SampleDataAccounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleDataAccounts.swift; sourceTree = "<group>"; };
 		60798B4F1CDB6985003FE4D2 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		60798B511CDB903E003FE4D2 /* AccountsAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountsAddTableViewController.swift; path = UI/AccountsAddTableViewController.swift; sourceTree = "<group>"; };
+		609433771CF6F5E600BA5799 /* dissmissKeyboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dissmissKeyboardExtension.swift; sourceTree = "<group>"; };
 		6099E72B1CEDD63800935428 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		60B1974A1CEC63D9009A2A08 /* RestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiManager.swift; sourceTree = "<group>"; };
 		60B1974E1CEC6BBA009A2A08 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				60B1974E1CEC6BBA009A2A08 /* SwiftyJSON.swift */,
 				6099E72B1CEDD63800935428 /* Reachability.swift */,
 				60B1974A1CEC63D9009A2A08 /* RestApiManager.swift */,
+				609433771CF6F5E600BA5799 /* dissmissKeyboardExtension.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				60798B4C1CDB4D50003FE4D2 /* Account.swift in Sources */,
 				60798B4E1CDB51B7003FE4D2 /* SampleDataAccounts.swift in Sources */,
 				60B1974B1CEC63D9009A2A08 /* RestApiManager.swift in Sources */,
+				609433781CF6F5E600BA5799 /* dissmissKeyboardExtension.swift in Sources */,
 				60B1974F1CEC6BBA009A2A08 /* SwiftyJSON.swift in Sources */,
 				60C4E9C21CD75A1200118A7B /* ViewController.m in Sources */,
 				60C4E9BF1CD75A1200118A7B /* AppDelegate.m in Sources */,

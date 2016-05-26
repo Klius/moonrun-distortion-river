@@ -20,13 +20,24 @@ class AccountsViewController: UITableViewController {
     @IBAction func saveAccountDetail(segue:UIStoryboardSegue) {
         if let AccountsAddTableViewController = segue.sourceViewController as? AccountsAddTableViewController{
             //add the new account to the account array
-            if let account = AccountsAddTableViewController.account {
-                accounts.append(account)
-                //update the tableView
-                let indexPath = NSIndexPath(forRow: accounts.count-1, inSection: 0)
-                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                //Save accounts
-                saveAccounts()
+            
+            print("row to update :",tableView.indexPathForSelectedRow)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing meal.
+                let account = AccountsAddTableViewController.account
+                accounts[selectedIndexPath.row] = account!
+                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+                
+            }
+            else  {
+                if let account = AccountsAddTableViewController.account{
+                    accounts.append(account)
+                    //update the tableView
+                    let indexPath = NSIndexPath(forRow: accounts.count-1, inSection: 0)
+                    tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    //Save accounts
+                    saveAccounts()
+                }
             }
         }
     }
@@ -34,47 +45,40 @@ class AccountsViewController: UITableViewController {
     
     //selects the Account
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        //Other row is selected - need to deselect it
-        if let index = selectedAccountIndex {
-            let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! AccountCell
-            cell.selectedImageView.image = UIImage(named: "deselected")
-            accounts[index].selected = false
-        }
-        
-        //Select the new row
-        selectedAccountIndex = indexPath.row
-        accounts[selectedAccountIndex!].selected = true
-        //update the checkmark for the current row
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccountCell
-        cell.selectedImageView.image = UIImage(named: "selected")
-        
-        //Save changes
-        saveAccounts()
-        
-        //Debug only!
-        //printSelectedAccount()
+       
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // tapRecognizer
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
+        self.view.addGestureRecognizer(longPressRecognizer)
         // Load any saved Accounts, otherwise load sample data.
         if let savedAccounts = loadAccounts() {
             accounts += savedAccounts
-            for index in 0...accounts.count-1 {
-                if accounts[index].selected{
-                    selectedAccountIndex = index
-                }
-            }
+            selectedAccountIndex = getSelectedIndex()
         } else {
             // Load the sample data.
             
         }
 
     }
-
+    
+    
+    func getSelectedIndex() -> Int{
+        var selectedAccountIndex:Int = 0
+        var index:Int = 0
+            for account in accounts{
+                if account.selected {
+                    selectedAccountIndex = index
+                }
+                index += 1
+            }
+        return selectedAccountIndex
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -92,7 +96,7 @@ class AccountsViewController: UITableViewController {
     }
 
     /**
-    *** Configuración de la celda dentro del tableview (texto a mostrar i demás)
+    *** Configuración de la celda dentro del tableview (texto a mostrar i demás) i'm sexy and i know it - The punk
     *****
      */
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -107,6 +111,40 @@ class AccountsViewController: UITableViewController {
     }
     
     
+    //Called, when long press occurred
+    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
+            
+            let touchPoint = longPressGestureRecognizer.locationInView(self.view)
+            if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
+                
+                
+                //Other row is selected - need to deselect it
+                
+                if let index = selectedAccountIndex{
+                    if index < accounts.count {
+                        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! AccountCell
+                        cell.selectedImageView.image = UIImage(named: "deselected")
+                        accounts[index].selected = false
+                    }
+                }
+                
+                //Select the new row
+                selectedAccountIndex = indexPath.row
+                accounts[selectedAccountIndex!].selected = true
+                //update the checkmark for the current row
+                let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccountCell
+                cell.selectedImageView.image = UIImage(named: "selected")
+                
+                //Save changes
+                saveAccounts()
+                
+                //Debug only!
+                //printSelectedAccount()
+            }
+        }
+    }
     
     
     // Override to support editing the table view.

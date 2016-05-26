@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "platinumsupport/UI/AccountsAddTableViewController.swift"
-            timestampString = "485881086.947202"
+            timestampString = "485950478.388434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "checkFields(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "platinumsupport/UI/AccountsAddTableViewController.swift"
-            timestampString = "485881086.947202"
+            timestampString = "485950478.388434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "checkFields(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "platinumsupport/UI/AccountsAddTableViewController.swift"
-            timestampString = "485881086.947202"
+            timestampString = "485950478.388434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "retrieveUserData(_:mail:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -80,6 +80,22 @@
             startingLineNumber = "62"
             endingLineNumber = "62"
             landmarkName = "init(coder:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "platinumsupport/AccountsViewController.swift"
+            timestampString = "485954367.606445"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "saveAccountDetail(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

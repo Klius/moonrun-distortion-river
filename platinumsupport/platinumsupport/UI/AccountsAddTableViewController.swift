@@ -28,10 +28,11 @@ class AccountsAddTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         //you can't save until the info is right and there
         self.navigationItem.rightBarButtonItem!.enabled = false;
-        codeTextAccount.addTarget(self, action: "checkFields:", forControlEvents: .EditingDidEnd)
-        mailTextField.addTarget(self, action: "checkFields:", forControlEvents: .EditingDidEnd)
+        codeTextAccount.addTarget(self, action: #selector(AccountsAddTableViewController.checkFields(_:)), forControlEvents: .EditingDidEnd)
+        mailTextField.addTarget(self, action: #selector(AccountsAddTableViewController.checkFields(_:)), forControlEvents: .EditingDidEnd)
         //Edit mode
         if let account = account{
             editModeGui()
@@ -53,7 +54,7 @@ class AccountsAddTableViewController: UITableViewController {
         //enable the poor
         nameTextField.enabled = true
         nameTextField.userInteractionEnabled = true
-        self.navigationItem.rightBarButtonItem!.enabled = true
+        nameTextField.addTarget(self, action: #selector(AccountsAddTableViewController.checkName(_:)), forControlEvents: .EditingDidEnd)
         //Fill them the info
         codeTextAccount.text = account?.code
         mailTextField.text = account?.mail
@@ -61,11 +62,24 @@ class AccountsAddTableViewController: UITableViewController {
         
     }
     
+    
+    
 /***********
  ***
  *** Checks if all fields are written on
  ***
  **********/
+    
+    func checkName(sender: UITextField){
+        sender.text = sender.text?.stringByTrimmingCharactersInSet(.whitespaceCharacterSet())
+        guard
+            let name = nameTextField.text where !name.isEmpty
+            else{ return }
+        //more checks here
+        
+        self.account?.name = name
+        self.navigationItem.rightBarButtonItem?.enabled = true
+    }
     
     func checkFields(sender: UITextField) {
         sender.text = sender.text?.stringByTrimmingCharactersInSet(.whitespaceCharacterSet())
@@ -163,6 +177,7 @@ class AccountsAddTableViewController: UITableViewController {
         
     }
     
-
+    
+    
 
 }
