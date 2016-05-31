@@ -24,6 +24,7 @@
 		60C4E9CA1CD75A1200118A7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C4E9C81CD75A1200118A7B /* LaunchScreen.storyboard */; };
 		60C4E9D51CD75A1200118A7B /* platinumsupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C4E9D41CD75A1200118A7B /* platinumsupportTests.m */; };
 		60C4E9E01CD75A1200118A7B /* platinumsupportUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C4E9DF1CD75A1200118A7B /* platinumsupportUITests.m */; };
+		60E1BB7C1CFDD9310098A78D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1BB7B1CFDD9310098A78D /* Server.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		60C4E9DB1CD75A1200118A7B /* platinumsupportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = platinumsupportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C4E9DF1CD75A1200118A7B /* platinumsupportUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = platinumsupportUITests.m; sourceTree = "<group>"; };
 		60C4E9E11CD75A1200118A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60E1BB7B1CFDD9310098A78D /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				6099E72B1CEDD63800935428 /* Reachability.swift */,
 				60B1974A1CEC63D9009A2A08 /* RestApiManager.swift */,
 				609433771CF6F5E600BA5799 /* dissmissKeyboardExtension.swift */,
+				60E1BB7B1CFDD9310098A78D /* Server.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				6099E72C1CEDD63800935428 /* Reachability.swift in Sources */,
 				60798B501CDB6985003FE4D2 /* AccountCell.swift in Sources */,
 				60C4E9BC1CD75A1200118A7B /* main.m in Sources */,
+				60E1BB7C1CFDD9310098A78D /* Server.swift in Sources */,
 				60798B521CDB903E003FE4D2 /* AccountsAddTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
